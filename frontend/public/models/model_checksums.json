@@ -1,0 +1,5 @@
+{
+  "mobilenet_emotion.onnx": "e56386a6aca1d3f2d13087d1b16341e58533242dda7691b08a657909225fbda8",
+  "landmark_cnn_emotion.onnx": "b305b822ed95d743a2ef19dee6008fd9fcf663dcff9cc18628e09e90d7d200e0",
+  "efficientnet_emotion.onnx": "033f6a11fe74b1df5da274b5ac726d6529f75e78f3f1ee0eca1efb5c36c91e91"
+}

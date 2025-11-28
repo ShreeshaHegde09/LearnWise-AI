@@ -1,0 +1,293 @@
+/* Tailwind CSS directives */
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind base;
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ef4444;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* Animation utilities */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient text */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+/* Enhanced content styling for better readability */
+.prose {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #f3f4f6;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  border-left: 4px solid #ef4444;
+  padding-left: 1rem;
+  background: none;
+  color: #ef4444;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+  color: #e5e7eb;
+}
+
+.prose strong {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.prose em {
+  color: #a78bfa;
+  font-style: italic;
+}
+
+.prose ul, .prose ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.prose li {
+  margin-bottom: 0.75rem;
+  color: #d1d5db;
+  position: relative;
+}
+
+.prose li::marker {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.prose code {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.4rem;
+  font-family: 'Fira Code', monospace;
+  color: #fbbf24;
+  font-size: 0.9em;
+}
+
+.prose pre {
+  background: #1f2937;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  font-style: italic;
+  color: #d1d5db;
+}
+
+/* Table styling for learning content */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  border: 2px solid rgba(239, 68, 68, 0.4);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.prose th {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: #fbbf24;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+.prose td {
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 1rem;
+  color: #e5e7eb;
+  background: rgba(31, 41, 55, 0.3);
+}
+
+.prose tr:nth-child(even) td {
+  background-color: rgba(31, 41, 55, 0.5);
+}
+
+.prose tr:hover td {
+  background-color: rgba(239, 68, 68, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+/* Highlight boxes for important content */
+.prose .highlight-box {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.1);
+}
+
+/* Focus mode - reduce distractions */
+.focus-mode {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth reading experience */
+.prose a {
+  color: #60a5fa;
+  text-decoration: underline;
+  text-decoration-color: rgba(96, 165, 250, 0.3);
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+}
+
+.prose a:hover {
+  color: #93c5fd;
+  text-decoration-color: rgba(147, 197, 253, 0.6);
+}
+
+/* Animated background for engaging experience */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-bg {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 25%, #0a0a0a 50%, #1a0505 75%, #0a0a0a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
+
+/* Glow effects for interactive elements */
+.glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.glow-red:hover {
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+}
+
+/* Reading focus indicator */
+.reading-line {
+  position: relative;
+}
+
+.reading-line::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #ef4444, transparent);
+  border-radius: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, .clickable {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid #ef4444;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Subtle pulse animation for important elements */
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+.pulse-subtle {
+  animation: subtlePulse 3s ease-in-out infinite;
+}

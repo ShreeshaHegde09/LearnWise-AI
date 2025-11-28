@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1f1f1f 0%, #2d1b1b 100%);
+      color: white;
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .title {
+      color: #dc2626;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .status {
+      background: #374151;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .status-dot.active {
+      background: #10b981;
+      animation: pulse 2s infinite;
+    }
+    
+    .status-dot.inactive {
+      background: #6b7280;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 12px;
+      color: #d1d5db;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 8px;
+      background: #1f2937;
+      border-radius: 4px;
+    }
+    
+    .stat-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #dc2626;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: #dc2626;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #b91c1c;
+    }
+    
+    .btn-secondary {
+      background: #374151;
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: #4b5563;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🤖</div>
+    <h1 class="title">AI Learning Monitor</h1>
+  </div>
+  
+  <div class="status">
+    <div class="status-indicator">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Checking status...</span>
+    </div>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-value" id="mouseCount">0</div>
+        <div>Mouse Moves</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="keyCount">0</div>
+        <div>Keystrokes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="tabCount">0</div>
+        <div>Tab Switches</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="idleTime">0s</div>
+        <div>Idle Time</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button class="btn btn-primary" id="toggleBtn">Start</button>
+    <button class="btn btn-secondary" id="settingsBtn">Settings</button>
+  </div>
+  
+  <div class="footer">
+    AI-Powered Learning System v1.0
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
