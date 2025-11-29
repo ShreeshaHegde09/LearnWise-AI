@@ -31,17 +31,16 @@ except Exception as e:
     print(f"Warning: Gemini API not available: {e}")
     gemini_service = None
 
-# Initialize Emotion Ensemble Service (3 models: MobileNet, EfficientNet, LandmarkCNN)
-emotion_service = None
+# Emotion detection is handled client-side in the browser using TensorFlow.js
+# Backend emotion service provides fallback support
 try:
-    from emotion_ensemble_service import get_ensemble_service
-    model_dir = os.path.join(os.path.dirname(__file__), 'models')
-    emotion_service = get_ensemble_service(model_dir)
-    print("✓ Emotion ensemble service initialized (3 models loaded)")
+    from emotion_ensemble_service import emotion_service
+    print("✓ Emotion ensemble service loaded (fallback mode)")
 except Exception as e:
-    print(f"Warning: Emotion ensemble service not available: {e}")
-    print("  Emotion prediction endpoints will not be available")
+    print(f"Warning: Emotion service not available: {e}")
     emotion_service = None
+print("ℹ️  Primary emotion detection runs client-side in browser (TensorFlow.js)")
+print("   Backend provides fallback support if needed")
 
 # Database Models
 class User(db.Model):
@@ -744,13 +743,17 @@ def handle_emotion_data():
 @app.route('/api/emotion/predict', methods=['POST'])
 def predict_emotion():
     """
-    Predict emotion from base64 encoded image using ensemble of 3 models
+    Emotion detection endpoint - Returns info that detection happens client-side
+    Note: Actual emotion detection runs in the browser using TensorFlow.js
     """
-    if not emotion_service or not emotion_service.models_loaded:
-        return jsonify({
-            'error': 'Emotion service not available',
-            'message': 'Models not loaded on server'
-        }), 503
+    # Emotion detection is handled client-side, not on backend
+    return jsonify({
+        'info': 'Emotion detection runs client-side in browser',
+        'message': 'This endpoint is not used. Emotion detection happens in the browser using TensorFlow.js',
+        'emotion': 'neutral',
+        'confidence': 0.0,
+        'client_side': True
+    }), 200
     
     try:
         data = request.json
